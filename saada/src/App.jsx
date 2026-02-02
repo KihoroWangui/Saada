@@ -1,5 +1,6 @@
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { AuthProvider } from "./context/AuthContext";
+
 import Dashboard from "./pages/dashboard";
 import Login from "./pages/login";
 import Signup from "./pages/signup";
@@ -11,12 +12,20 @@ function App() {
   return (
     <AuthProvider>
       <BrowserRouter>
-        
-
         <Routes>
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Signup />} />
+          
+          <Route path="/" element={<Navigate to="/dashboard" replace />} />
+
+         
+          <Route
+            path="/dashboard"
+            element={
+              <PrivateRoute>
+                <Dashboard />
+              </PrivateRoute>
+            }
+          />
+
           <Route
             path="/errand"
             element={
@@ -25,7 +34,14 @@ function App() {
               </PrivateRoute>
             }
           />
+
+          
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
           <Route path="/ViewErrands" element={<ViewErrands />} />
+
+          
+          <Route path="*" element={<Navigate to="/dashboard" replace />} />
         </Routes>
       </BrowserRouter>
     </AuthProvider>
