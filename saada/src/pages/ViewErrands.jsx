@@ -12,8 +12,8 @@ const ViewErrands = () => {
         const data = await getAllErrands();
         console.log("Fetched errands:", data);
         setErrands(data);
-      } catch (err) {
-        console.error("Error fetching errands:", err);
+      } catch (error) {
+        console.error("Error fetching errands:", error);
       } finally {
         setLoading(false);
       }
@@ -22,10 +22,9 @@ const ViewErrands = () => {
     fetchErrands();
   }, []);
 
-  // Update a task in local state after it is claimed
   const handleTaskClaimed = (taskId, userId) => {
-    setErrands((prevErrands) =>
-      prevErrands.map((errand) =>
+    setErrands(prev =>
+      prev.map(errand =>
         errand.id === taskId
           ? { ...errand, status: "claimed", claimedBy: userId }
           : errand
@@ -40,7 +39,7 @@ const ViewErrands = () => {
     <div className="grid gap-4">
       <h2 className="text-xl font-bold">Available Errands</h2>
 
-      {errands.map((errand) => (
+      {errands.map(errand => (
         <TaskCard
           key={errand.id}
           task={errand}
