@@ -2,28 +2,21 @@
 import { useAuth } from "../context/AuthContext";
 import { db } from "../firebase/config";
 
-function TaskCard({ task, onClaimed }) {
-  const { currentUser } = useAuth();
+function TaskCard({ task, onUpdate }) {
+  const { user: currentUser } = useAuth();
 
-  console.log("Task:", task);
+  console.log("Rendering TaskCard:", task);
   console.log("Current user:", currentUser);
 
-  // BUTTON LOGIC: show if task is open, ignoring case/space, and not already claimed
-  const canClaim =
-    currentUser &&
-    task.status &&
-    task.status.toLowerCase().trim() === "open" &&
-    !task.claimedBy;
+  // Determine permissions
+  const canClaim = currentUser && task.status === "open";
+  const canComplete = currentUser && task.status === "claimed" && task.claimedBy === currentUser.uid;
 
+  // Claim errand
   const handleClaim = async () => {
-    if (!currentUser) {
-      alert("You must be logged in to claim an errand");
-      return;
-    }
+    if (!currentUser || !task.id) return;
 
     try {
-      console.log("Claiming task:", task.id);
-
       const taskRef = doc(db, "errands", task.id);
 
       await updateDoc(taskRef, {
@@ -32,10 +25,28 @@ function TaskCard({ task, onClaimed }) {
       });
 
       console.log("Task claimed successfully");
-
-      onClaimed(task.id, currentUser.uid);
+      onUpdate(task.id, { status: "claimed", claimedBy: currentUser.uid });
     } catch (error) {
       console.error("Error claiming task:", error);
+    }
+  };
+
+  // Complete errand
+  const handleComplete = async () => {
+    if (!currentUser || !task.id) return;
+
+    try {
+      const taskRef = doc(db, "errands", task.id);
+
+      await updateDoc(taskRef, {
+        status: "completed",
+      });
+
+      console.log("Task completed successfully");
+      onUpdate(task.id, { status: "completed" });
+      alert("Errand completed!");
+    } catch (error) {
+      console.error("Error completing task:", error);
     }
   };
 
@@ -44,11 +55,6 @@ function TaskCard({ task, onClaimed }) {
       <h3 className="font-semibold">{task.title}</h3>
       <p>{task.description}</p>
       <p>Status: {task.status}</p>
-
-      {/* DEBUG INFO */}
-      <p className="text-xs text-red-600">
-        DEBUG → status: [{String(task.status)}] | claimedBy: [{task.claimedBy || "NONE"}] | user: [{currentUser ? "YES" : "NO"}]
-      </p>
 
       {canClaim && (
         <button
@@ -59,12 +65,25 @@ function TaskCard({ task, onClaimed }) {
         </button>
       )}
 
-      {task.status?.toLowerCase().trim() === "claimed" && (
+      {canComplete && (
+        <button
+          onClick={handleComplete}
+          className="mt-2 bg-green-600 text-white px-4 py-2 rounded"
+        >
+          Complete Errand
+        </button>
+      )}
+
+      {task.status === "claimed" && !canComplete && (
         <p className="mt-2 text-yellow-600">
           {task.claimedBy === currentUser?.uid
             ? "Claimed by you"
-            : "Claimed"}
+            : "Claimed by another user"}
         </p>
+      )}
+
+      {task.status === "completed" && (
+        <p className="mt-2 text-gray-600 font-semibold">✅ Completed</p>
       )}
     </div>
   );

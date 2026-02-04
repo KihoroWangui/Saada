@@ -1,8 +1,14 @@
-
 import { useState } from "react";
 import { useAuth } from "../context/AuthContext";
 import { postErrand } from "../Services/errandservice";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
+import logo from "../images/logo.png"; 
+
+const navLinkStyle = {
+  margin: "0 10px",
+  textDecoration: "none",
+  color: "white",
+};
 
 const PostErrand = () => {
   const { user } = useAuth();
@@ -28,7 +34,7 @@ const PostErrand = () => {
         title,
         description,
         location,
-        rating: parseFloat(rating),
+        rating: rating ? parseFloat(rating) : 0,
         postedBy: user.uid,
       });
       alert("Errand posted successfully!");
@@ -39,38 +45,64 @@ const PostErrand = () => {
   };
 
   return (
-    <div>
-      <h2>Post a New Errand</h2>
-      {error && <p style={{ color: "red" }}>{error}</p>}
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="Title"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-          required
-        />
-        <textarea
-          placeholder="Description"
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
-          required
-        />
-        <input
-          type="text"
-          placeholder="Location (optional)"
-          value={location}
-          onChange={(e) => setLocation(e.target.value)}
-        />
-        <input
-          type="number"
-          placeholder="Rating"
-          value={rating}
-          onChange={(e) => setRating(e.target.value)}
-        />
-        <button type="submit">Post Errand</button>
-      </form>
-    </div>
+    <>
+      {/* Navbar */}
+      <nav
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          padding: "10px 30px",
+          backgroundColor: "rgba(0,0,0,0.6)",
+        }}
+      >
+        <div style={{ display: "flex", alignItems: "center" }}>
+          <img src={logo} alt="Logo" style={{ height: "40px", marginRight: "10px" }} />
+        </div>
+
+        <div>
+          <Link to="/dashboard" style={navLinkStyle}>Home</Link>
+          <Link to="/errand" style={navLinkStyle}>Post Errand</Link>
+          <Link to="/ViewErrands" style={navLinkStyle}>View Errands</Link>
+          <Link to="/signup" style={navLinkStyle}>SignUp</Link>
+          <Link to="/login" style={navLinkStyle}>Login</Link>
+        </div>
+      </nav>
+
+      {/* Form */}
+      <div style={{ padding: "20px" }}>
+        <h2>Post a New Errand</h2>
+        {error && <p style={{ color: "red" }}>{error}</p>}
+        <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "10px", maxWidth: "400px" }}>
+          <input
+            type="text"
+            placeholder="Title"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+            required
+          />
+          <textarea
+            placeholder="Description"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+            required
+          />
+          <input
+            type="text"
+            placeholder="Location (optional)"
+            value={location}
+            onChange={(e) => setLocation(e.target.value)}
+          />
+          <input
+            type="number"
+            placeholder="Rating"
+            value={rating}
+            onChange={(e) => setRating(e.target.value)}
+          />
+          <button type="submit">Post Errand</button>
+        </form>
+      </div>
+    </>
   );
 };
 

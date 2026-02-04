@@ -11,7 +11,7 @@ export const postErrand = async ({ title, description, location, rating, postedB
     rating: rating || 0,
     postedBy,
     claimedBy: null,
-    status: "posted",
+    status: "open",
     createdAt: serverTimestamp(),
   });
   return docRef.id;
