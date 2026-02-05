@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\Hp\\Desktop\\Saada\\saada\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Hp\\Desktop\\Saada\\saada\\src\\components\\taskcard.jsx||{3B902123-F8A7-4915-9F01-361F908088D0}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\components\\taskcard.jsx||{3B902123-F8A7-4915-9F01-361F908088D0}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Hp\\Desktop\\Saada\\saada\\src\\pages\\ViewErrands.jsx||{3B902123-F8A7-4915-9F01-361F908088D0}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\pages\\ViewErrands.jsx||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Hp\\Desktop\\Saada\\saada\\src\\components\\taskcard.jsx||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\components\\taskcard.jsx||{3B902123-F8A7-4915-9F01-361F908088D0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Hp\\Desktop\\Saada\\saada\\src\\components\\PrivateRoute.jsx||{3B902123-F8A7-4915-9F01-361F908088D0}",
@@ -94,7 +94,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
@@ -107,8 +107,7 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAACgAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
               "WhenOpened": "2026-01-29T14:41:56.735Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Bookmark",
@@ -124,8 +123,7 @@
               "RelativeToolTip": "src\\pages\\login.jsx",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
-              "WhenOpened": "2026-01-28T14:32:26.905Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-28T14:32:26.905Z"
             },
             {
               "$type": "Document",
@@ -137,18 +135,17 @@
               "RelativeToolTip": "src\\pages\\signup.jsx",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
-              "WhenOpened": "2026-01-28T14:34:15.215Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-28T14:34:15.215Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "ViewErrands.jsx",
               "DocumentMoniker": "C:\\Users\\Hp\\Desktop\\Saada\\saada\\src\\pages\\ViewErrands.jsx",
               "RelativeDocumentMoniker": "src\\pages\\ViewErrands.jsx",
               "ToolTip": "C:\\Users\\Hp\\Desktop\\Saada\\saada\\src\\pages\\ViewErrands.jsx",
               "RelativeToolTip": "src\\pages\\ViewErrands.jsx",
-              "ViewState": "AgIAABsAAAAAAAAAAAAAADYAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAACAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
               "WhenOpened": "2026-01-30T12:31:26.635Z",
               "EditorCaption": ""
@@ -163,8 +160,7 @@
               "RelativeToolTip": "src\\components\\navbar.jsx",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
-              "WhenOpened": "2026-01-28T14:26:14.689Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-28T14:26:14.689Z"
             },
             {
               "$type": "Document",
@@ -176,12 +172,11 @@
               "RelativeToolTip": "src\\components\\PrivateRoute.jsx",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
-              "WhenOpened": "2026-01-28T14:26:47.32Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-28T14:26:47.32Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "taskcard.jsx",
               "DocumentMoniker": "C:\\Users\\Hp\\Desktop\\Saada\\saada\\src\\components\\taskcard.jsx",
               "RelativeDocumentMoniker": "src\\components\\taskcard.jsx",
@@ -202,8 +197,7 @@
               "RelativeToolTip": "src\\pages\\index.jsx",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
-              "WhenOpened": "2026-01-28T14:32:21.208Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-28T14:32:21.208Z"
             },
             {
               "$type": "Document",
@@ -215,8 +209,7 @@
               "RelativeToolTip": "src\\pages\\dashboard.jsx",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
-              "WhenOpened": "2026-01-28T14:34:45.063Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-28T14:34:45.063Z"
             },
             {
               "$type": "Document",
@@ -228,8 +221,7 @@
               "RelativeToolTip": "src\\Services\\errandservice.jsx",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
-              "WhenOpened": "2026-01-30T11:39:21.94Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-30T11:39:21.94Z"
             },
             {
               "$type": "Document",
@@ -241,8 +233,7 @@
               "RelativeToolTip": "src\\Services\\authservice.jsx",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
-              "WhenOpened": "2026-01-30T10:22:07.514Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-30T10:22:07.514Z"
             },
             {
               "$type": "Document",
@@ -254,8 +245,7 @@
               "RelativeToolTip": "src\\pages\\errand.jsx",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
-              "WhenOpened": "2026-01-28T14:34:31.252Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-28T14:34:31.252Z"
             },
             {
               "$type": "Document",
