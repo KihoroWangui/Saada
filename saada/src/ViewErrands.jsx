@@ -49,7 +49,7 @@ const ViewErrands = () => {
 
         {/* Nav Links */}
         <div style={{ ...navLinksContainer, display: menuOpen ? "flex" : "none" }}>
-          <Link to="/dashboard" style={navLinkStyle} onClick={() => setMenuOpen(false)}>Home</Link>
+          <Link to="/index" style={navLinkStyle} onClick={() => setMenuOpen(false)}>Home</Link>
           <Link to="/errand" style={navLinkStyle} onClick={() => setMenuOpen(false)}>Post Errand</Link>
           <Link to="/ViewErrands" style={navLinkStyle} onClick={() => setMenuOpen(false)}>View Errands</Link>
           <Link to="/signup" style={navLinkStyle} onClick={() => setMenuOpen(false)}>Sign Up</Link>

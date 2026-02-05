@@ -3,7 +3,7 @@ import { AuthProvider } from "./context/AuthContext";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import './index.css';
-import Dashboard from "./dashboard";
+import Index from "./index"; 
 import Login from "./login";
 import Signup from "./signup";
 import PostErrand from "./errand";
@@ -15,19 +15,21 @@ function App() {
     <AuthProvider>
       <BrowserRouter>
         <Routes>
-          
-          <Route path="/" element={<Navigate to="/dashboard" replace />} />
+
+          {/* Redirect root to /index */}
+          <Route path="/" element={<Navigate to="/index" replace />} />
 
          
           <Route
-            path="/dashboard"
+            path="/index"
             element={
               <PrivateRoute>
-                <Dashboard />
+                <Index /> 
               </PrivateRoute>
             }
           />
 
+          {/* Protected Post Errand */}
           <Route
             path="/errand"
             element={
@@ -37,13 +39,14 @@ function App() {
             }
           />
 
-          
+          {/* Public Routes */}
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/ViewErrands" element={<ViewErrands />} />
 
-          
-          <Route path="*" element={<Navigate to="/dashboard" replace />} />
+          {/* Catch-all */}
+          <Route path="*" element={<Navigate to="/index" replace />} />
+
         </Routes>
       </BrowserRouter>
     </AuthProvider>

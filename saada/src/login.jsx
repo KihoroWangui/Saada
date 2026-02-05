@@ -17,7 +17,7 @@ const Login = () => {
 
     try {
       await login(email, password);
-      navigate("/dashboard"); // redirect to dashboard after login
+      navigate("/index"); // redirect to dashboard after login
     } catch (err) {
       setError("Invalid email or password");
     }
@@ -51,7 +51,7 @@ const Login = () => {
             display: menuOpen ? "flex" : "none",
           }}
         >
-          <Link to="/dashboard" style={navLinkStyle} onClick={() => setMenuOpen(false)}>Home</Link>
+          <Link to="/index" style={navLinkStyle} onClick={() => setMenuOpen(false)}>Home</Link>
           <Link to="/errand" style={navLinkStyle} onClick={() => setMenuOpen(false)}>Post Errand</Link>
           <Link to="/ViewErrands" style={navLinkStyle} onClick={() => setMenuOpen(false)}>View Errands</Link>
           <Link to="/signup" style={navLinkStyle} onClick={() => setMenuOpen(false)}>Sign Up</Link>

@@ -1,7 +1,7 @@
 ﻿import { useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "./images/logo.png";
-
+import App from "./App";
 import feature1 from "./images/feature1.png";
 import feature2 from "./images/feature2.png";
 import feature3 from "./images/feature3.png";
@@ -10,7 +10,7 @@ import step1 from "./images/step1.png";
 import step2 from "./images/step2.png";
 import step3 from "./images/step3.png";
 
-const Dashboard = () => {
+const Index = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
@@ -41,7 +41,7 @@ const Dashboard = () => {
             display: menuOpen ? "flex" : "none",
           }}
         >
-          <Link to="/dashboard" style={navLinkStyle} onClick={() => setMenuOpen(false)}>Home</Link>
+          <Link to="/index" style={navLinkStyle} onClick={() => setMenuOpen(false)}>Home</Link>
           <Link to="/errand" style={navLinkStyle} onClick={() => setMenuOpen(false)}>Post Errand</Link>
           <Link to="/ViewErrands" style={navLinkStyle} onClick={() => setMenuOpen(false)}>View Errands</Link>
           <Link to="/signup" style={navLinkStyle} onClick={() => setMenuOpen(false)}>Sign Up</Link>
@@ -289,4 +289,4 @@ const blueButton = {
   boxShadow: "0 4px 10px rgba(0,0,0,0.3)",
 };
 
-export default Dashboard;
+export default Index;
