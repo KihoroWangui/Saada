@@ -1,14 +1,14 @@
 ﻿import { useState } from "react";
 import { Link } from "react-router-dom";
-import logo from "../images/logo.png";
+import logo from "./images/logo.png";
 
-import feature1 from "../images/feature1.png";
-import feature2 from "../images/feature2.png";
-import feature3 from "../images/feature3.png";
+import feature1 from "./images/feature1.png";
+import feature2 from "./images/feature2.png";
+import feature3 from "./images/feature3.png";
 
-import step1 from "../images/step1.png";
-import step2 from "../images/step2.png";
-import step3 from "../images/step3.png";
+import step1 from "./images/step1.png";
+import step2 from "./images/step2.png";
+import step3 from "./images/step3.png";
 
 const Dashboard = () => {
   const [menuOpen, setMenuOpen] = useState(false);

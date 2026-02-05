@@ -1,8 +1,8 @@
 ﻿import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { getAllErrands } from "../Services/errandservice";
-import TaskCard from "../components/taskcard";
-import logo from "../images/logo.png";
+import { getAllErrands } from "./Services/errandservice";
+import TaskCard from "./components/taskcard";
+import logo from "./images/logo.png";
 
 const ViewErrands = () => {
   const [errands, setErrands] = useState([]);

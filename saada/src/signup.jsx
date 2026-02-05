@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { signup } from "../Services/authservice";
+import { signup } from "./Services/authservice";
 import { useNavigate, Link } from "react-router-dom";
-import logo from "../images/logo.png";
+import logo from "./images/logo.png";
 
 const Signup = () => {
   const [email, setEmail] = useState("");
