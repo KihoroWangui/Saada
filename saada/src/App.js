@@ -3,11 +3,11 @@ import { AuthProvider } from "./context/AuthContext";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import './index.css';
-import Index from "./index"; 
-import Login from "./login";
-import Signup from "./signup";
-import PostErrand from "./errand";
-import ViewErrands from "./ViewErrands";
+import Index from "./pages/index"; 
+import Login from "./pages/login";
+import Signup from "./pages/signup";
+import PostErrand from "./pages/errand";
+import ViewErrands from "./pages/ViewErrands";
 import PrivateRoute from "./components/PrivateRoute";
 
 function App() {

@@ -1,36 +1,60 @@
 import { useState } from "react";
-import { signup } from "./Services/authservice";
+import { useAuth } from "../context/AuthContext";
+import { postErrand } from "../Services/errandservice";
 import { useNavigate, Link } from "react-router-dom";
-import logo from "./images/logo.png";
+import logo from "../images/logo.png";
 
-const Signup = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+const PostErrand = () => {
+  const { user } = useAuth();
+  const navigate = useNavigate();
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const [location, setLocation] = useState("");
+  const [rating, setRating] = useState("");
   const [error, setError] = useState("");
   const [hovered, setHovered] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
-  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
+
+    if (!user) {
+      setError("You must be logged in to post an errand.");
+      return;
+    }
+
     try {
-      await signup(email, password);
-      navigate("/login");
+      await postErrand({
+        title,
+        description,
+        location,
+        rating: rating ? parseFloat(rating) : 0,
+        postedBy: user.uid,
+      });
+      alert("Errand posted successfully!");
+      navigate("/dashboard");
     } catch (err) {
       setError(err.message);
     }
   };
 
   return (
-    <div style={{ minHeight: "100vh", fontFamily: "Arial, sans-serif", background: "#020617" }}>
+    <div
+      style={{
+        minHeight: "100vh",
+        fontFamily: "Arial, sans-serif",
+        background: "#f1f5f9",
+      }}
+    >
       {/* Navbar */}
       <nav style={navbar}>
         <div style={{ display: "flex", alignItems: "center" }}>
           <img src={logo} alt="Logo" style={logoStyle} />
         </div>
 
-        {/* Hamburger for mobile */}
+        {/* Hamburger */}
         <div style={hamburgerContainer} onClick={() => setMenuOpen(!menuOpen)}>
           <div style={hamburgerLine}></div>
           <div style={hamburgerLine}></div>
@@ -38,7 +62,12 @@ const Signup = () => {
         </div>
 
         {/* Links */}
-        <div style={{ ...navLinksContainer, display: menuOpen ? "flex" : "none" }}>
+        <div
+          style={{
+            ...navLinksContainer,
+            display: menuOpen ? "flex" : "none",
+          }}
+        >
           <Link to="/index" style={navLinkStyle} onClick={() => setMenuOpen(false)}>Home</Link>
           <Link to="/errand" style={navLinkStyle} onClick={() => setMenuOpen(false)}>Post Errand</Link>
           <Link to="/ViewErrands" style={navLinkStyle} onClick={() => setMenuOpen(false)}>View Errands</Link>
@@ -47,29 +76,45 @@ const Signup = () => {
         </div>
       </nav>
 
-      {/* Centered Signup Form */}
+      {/* Centered Form */}
       <div style={formWrapper}>
         <div style={formContainer}>
-          <h2 style={formTitle}>Create Account</h2>
+          <h2 style={formTitle}>Post a New Errand</h2>
 
           {error && <p style={formError}>{error}</p>}
 
           <form onSubmit={handleSubmit} style={formStyle}>
             <input
-              type="email"
-              placeholder="Email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              type="text"
+              placeholder="Errand title"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
               required
               style={inputStyle}
             />
 
-            <input
-              type="password"
-              placeholder="Password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
+            <textarea
+              placeholder="Describe the errand..."
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
               required
+              rows={4}
+              style={inputStyle}
+            />
+
+            <input
+              type="text"
+              placeholder="Location (optional)"
+              value={location}
+              onChange={(e) => setLocation(e.target.value)}
+              style={inputStyle}
+            />
+
+            <input
+              type="number"
+              placeholder="Rating (optional)"
+              value={rating}
+              onChange={(e) => setRating(e.target.value)}
               style={inputStyle}
             />
 
@@ -85,16 +130,9 @@ const Signup = () => {
               onMouseEnter={() => setHovered(true)}
               onMouseLeave={() => setHovered(false)}
             >
-              Sign Up
+              Post Errand
             </button>
           </form>
-
-          <p style={signupText}>
-            Already have an account?{" "}
-            <Link to="/login" style={{ color: "#2563eb", fontWeight: "600" }}>
-              Login
-            </Link>
-          </p>
         </div>
       </div>
     </div>
@@ -102,6 +140,7 @@ const Signup = () => {
 };
 
 /* ---------------- STYLES ---------------- */
+
 const navbar = {
   display: "flex",
   alignItems: "center",
@@ -164,7 +203,7 @@ const formWrapper = {
 
 const formContainer = {
   width: "100%",
-  maxWidth: "420px",
+  maxWidth: "440px",
   padding: "34px",
   backgroundColor: "#ffffff",
   borderRadius: "14px",
@@ -195,6 +234,7 @@ const inputStyle = {
   borderRadius: "10px",
   border: "1px solid #cbd5f5",
   fontSize: "14px",
+  resize: "none",
 };
 
 const submitButton = {
@@ -210,11 +250,4 @@ const submitButton = {
   transition: "all 0.25s ease",
 };
 
-const signupText = {
-  marginTop: "18px",
-  textAlign: "center",
-  fontSize: "14px",
-  color: "#4b5563",
-};
-
-export default Signup;
+export default PostErrand;

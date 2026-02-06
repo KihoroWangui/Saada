@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { login } from "./Services/authservice";
+import { signup } from "../Services/authservice";
 import { useNavigate, Link } from "react-router-dom";
-import logo from "./images/logo.png";
+import logo from "../images/logo.png";
 
-const Login = () => {
+const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -14,23 +14,16 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
-
     try {
-      await login(email, password);
-      navigate("/index"); // redirect to dashboard after login
+      await signup(email, password);
+      navigate("/login");
     } catch (err) {
-      setError("Invalid email or password");
+      setError(err.message);
     }
   };
 
   return (
-    <div
-      style={{
-        minHeight: "100vh",
-        fontFamily: "Arial, sans-serif",
-        background: "#020617",
-      }}
-    >
+    <div style={{ minHeight: "100vh", fontFamily: "Arial, sans-serif", background: "#020617" }}>
       {/* Navbar */}
       <nav style={navbar}>
         <div style={{ display: "flex", alignItems: "center" }}>
@@ -45,12 +38,7 @@ const Login = () => {
         </div>
 
         {/* Links */}
-        <div
-          style={{
-            ...navLinksContainer,
-            display: menuOpen ? "flex" : "none",
-          }}
-        >
+        <div style={{ ...navLinksContainer, display: menuOpen ? "flex" : "none" }}>
           <Link to="/index" style={navLinkStyle} onClick={() => setMenuOpen(false)}>Home</Link>
           <Link to="/errand" style={navLinkStyle} onClick={() => setMenuOpen(false)}>Post Errand</Link>
           <Link to="/ViewErrands" style={navLinkStyle} onClick={() => setMenuOpen(false)}>View Errands</Link>
@@ -59,10 +47,10 @@ const Login = () => {
         </div>
       </nav>
 
-      {/* Centered Login Form */}
+      {/* Centered Signup Form */}
       <div style={formWrapper}>
         <div style={formContainer}>
-          <h2 style={formTitle}>Login</h2>
+          <h2 style={formTitle}>Create Account</h2>
 
           {error && <p style={formError}>{error}</p>}
 
@@ -97,14 +85,14 @@ const Login = () => {
               onMouseEnter={() => setHovered(true)}
               onMouseLeave={() => setHovered(false)}
             >
-              Login
+              Sign Up
             </button>
           </form>
 
           <p style={signupText}>
-            Don't have an account?{" "}
-            <Link to="/signup" style={{ color: "#2563eb", fontWeight: "600" }}>
-              Sign Up
+            Already have an account?{" "}
+            <Link to="/login" style={{ color: "#2563eb", fontWeight: "600" }}>
+              Login
             </Link>
           </p>
         </div>
@@ -229,4 +217,4 @@ const signupText = {
   color: "#4b5563",
 };
 
-export default Login;
+export default Signup;
