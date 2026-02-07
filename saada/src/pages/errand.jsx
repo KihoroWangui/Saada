@@ -34,7 +34,7 @@ const PostErrand = () => {
         postedBy: user.uid,
       });
       alert("Errand posted successfully!");
-      navigate("/dashboard");
+      navigate("/ViewErrands");
     } catch (err) {
       setError(err.message);
     }
