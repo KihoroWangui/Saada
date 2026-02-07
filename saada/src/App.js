@@ -3,7 +3,7 @@ import { AuthProvider } from "./context/AuthContext";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import './index.css';
-import Index from "./pages/index"; 
+import Index from "./index"; 
 import Login from "./pages/login";
 import Signup from "./pages/signup";
 import PostErrand from "./pages/errand";
