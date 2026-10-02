@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
-import { AuthProvider } from "./context/AuthContext";
+import { AuthProvider } from "./Context/AuthContext";
 import logo from "./images/logo.png";
 import feature1 from "./images/feature1.png";
 import feature2 from "./images/feature2.png";

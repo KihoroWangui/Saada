@@ -1,7 +1,7 @@
 
 import { db } from "../firebase/config";
 import { collection,addDoc, getDocs,query,orderBy, serverTimestamp } from "firebase/firestore";
-import { useAuth } from "../context/AuthContext";
+import { useAuth } from "../Context/AuthContext";
 // Function for creating a new errand
 export const postErrand = async ({ title, description, location, rating, postedBy }) => {
   const docRef = await addDoc(collection(db, "errands"), {
