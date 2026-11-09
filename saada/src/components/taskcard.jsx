@@ -1,5 +1,5 @@
-﻿import { doc, updateDoc } from "firebase/firestore";
-//import { useAuth } from "../Context/AuthContext";
+import { doc, updateDoc } from "firebase/firestore";
+import { useAuth } from "../Context/AuthContext";
 import { db } from "../firebase/config";
 import { useState } from "react";
 
@@ -109,8 +109,7 @@ function TaskCard({ task, onUpdate }) {
               hovered === "claim"
                 ? "0 6px 14px rgba(0,0,0,0.25)"
                 : "0 4px 8px rgba(0,0,0,0.15)",
-            transform:
-              hovered === "claim" ? "translateY(-2px)" : "none",
+            transform: hovered === "claim" ? "translateY(-2px)" : "none",
           }}
           onMouseEnter={() => setHovered("claim")}
           onMouseLeave={() => setHovered(null)}
